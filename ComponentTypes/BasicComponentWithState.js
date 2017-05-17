@@ -17,7 +17,9 @@ class BasicComponentWithState extends Component {
     return (
       <View style={{backgroundColor: this.state.bgColor, flex: .3, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Cambio de color</Text>
-        <TouchableOpacity style={{alignSelf: 'stretch', alignItems: 'center', justifyContent: 'center', backgroundColor: '#746D75', marginHorizontal: 60,marginTop: 30, height: 40}} onPress={() => {
+        <TouchableOpacity style={{alignSelf: 'stretch',
+          alignItems: 'center', justifyContent: 'center',
+          backgroundColor: '#746D75', marginHorizontal: 60,marginTop: 30, height: 40}} onPress={() => {
 
           var colorIdx = idx++;
 

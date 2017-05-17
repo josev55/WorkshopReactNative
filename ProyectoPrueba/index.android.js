@@ -12,25 +12,25 @@ import {
   View
 } from 'react-native';
 
-import { StackNavigator } from 'react-navigation'
-import FirstScreen from './FirstScreen'
-import SecondScreen from './SecondScreen'
+const Mancomponent = () => {
+  return (
+    <View>
+    <Text>Este es un componente manco</Text>
+  </View>)
+}
 
-const MainNavigator = StackNavigator({
-  FirstScreen: {
-    screen: FirstScreen
-  },
-  SecondScreen: {
-    screen: SecondScreen
-  }
-},{
-  initialRouteName: 'FirstScreen'
-})
-
-export default class ReactNavigationExample extends Component {
+export default class ProyectoPrueba extends Component {
   render() {
     return (
-      <MainNavigator />
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.android.js
+        </Text>
+        <Mancomponent />
+      </View>
     );
   }
 }
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('ReactNavigationExample', () => ReactNavigationExample);
+AppRegistry.registerComponent('ProyectoPrueba', () => ProyectoPrueba);
