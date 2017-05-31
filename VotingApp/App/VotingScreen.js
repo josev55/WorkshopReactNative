@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 export default class VotingScreen extends Component {
 
@@ -29,17 +29,21 @@ export default class VotingScreen extends Component {
 
   render() {
 
-    var warning = this.state.showWarning ? <Text style={{color: 'red', fontWeight: 'bold', flex: .1}}>Usted ya votó!</Text> : <View />
+    var alert = <Text style={styles.alert}>Usted ya votó!</Text>
+
+    var emptyView = <View />
+
+    var warning = this.state.showWarning ? alert : emptyView
 
     return (
-      <View style={{ flex: 1, alignItems: 'center'}}>
-        <TouchableOpacity style={{flex: .2, justifyContent: 'center', borderWidth: 1, borderColor: '#000', alignSelf: 'stretch', alignItems: 'center', margin: 30}} onPress={() => this.vote('Tangananica')}>
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.button} onPress={() => this.vote('Tangananica')}>
           <Text>Tangananica</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flex: .2, justifyContent: 'center', borderWidth: 1, borderColor: '#000', alignSelf: 'stretch', alignItems: 'center', margin: 30}} onPress={() => this.vote('Tanganana')}>
+        <TouchableOpacity style={styles.button} onPress={() => this.vote('Tanganana')}>
           <Text>Tanganana</Text>
         </TouchableOpacity>
-        <View style={{flex: .5, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={styles.selectedOptionWrapper}>
           <Text style={{fontWeight: 'bold'}}>{'Votaste por: ' + this.state.selectedOption}</Text>
         </View>
         {warning}
@@ -47,3 +51,31 @@ export default class VotingScreen extends Component {
     )
   }
 }
+
+let styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  button: {
+    flex: .2,
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#000',
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    margin: 30,
+    borderRadius: 10
+  },
+  selectedOptionWrapper: {
+    flex: .5,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  alert: {
+    color: 'red',
+    fontWeight: 'bold',
+    flex: .1
+  }
+})
